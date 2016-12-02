@@ -1,0 +1,23 @@
+<div class="row">
+	<img class="col-md-6" ng-src="{{view.recipe.picURL}}" />
+	<div class="col-md-6">
+
+		<h1>{{view.recipe.title}}</h1>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<h4>You will need</h4>
+			</li>
+			<li class="list-group-item" ng-repeat="ingredient in view.recipe.ingredients">{{ingredient.name}} {{ingredient.quantity}}</li>
+		</ul>
+        <p>
+		This will take you approximately {{view.recipe.duration | duration}}
+        </p>
+        <button ng-if="!view.onList" class="btn btn-info btn-block" ng-click="view.addToShoppingList()">Baking it!</button>
+        <button ng-if="view.onList" class="btn btn-danger btn-block" ng-click="view.removeByRecipie()">I'm not baking it!</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		{{view.recipe.method}}
+	</div>
+</div>

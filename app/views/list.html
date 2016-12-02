@@ -1,0 +1,14 @@
+<div ng-repeat="recipeList in list.list">
+	<span>
+
+	<h3>{{recipeList.recipe}}     <a class="pull-right"  href="" ng-click="list.removeByRecipe(recipeList.recipe)">remove</a></h3>
+
+    </span>
+	<ul>
+		<li ng-repeat="item in recipeList.items">
+			{{item.name}} - {{item.quantity}} 
+            <a class="pull-right" href="" ng-click="list.removeByItem(recipeList.recipe, item.name)">remove</a>
+
+		</li>
+	</ul>
+</div>

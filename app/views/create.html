@@ -1,0 +1,58 @@
+<form class="form-horizontal" ng-submit="create.save()">
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="Title">Title
+        </label>
+		<div class="col-sm-10">
+			<input type="text" required ng-model="create.recipe.title" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="PicURL">Picture URL
+        </label>
+		<div class="col-sm-10">
+			<input type="url" required ng-model="create.recipe.picURL" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Prep Time
+        </label>
+		<div class="col-sm-4">
+			<input type="number" required ng-model="create.recipe.duration" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="PicURL">Diffculty
+        </label>
+		<div class="col-sm-4">
+			<span uib-rating ng-model="create.recipe.difficulty"></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="PicURL">Ingredients</label>
+		<button ng-click="create.addIngredient()" class="btn btn btn-default pull-right">
+        Add <span class="glyphicon glyphicon-plus" ></span>
+    </button>
+	</div>
+	<div ng-repeat="ingredient in create.recipe.ingredients" class="col-sm-offset-2 col-sm-10 ">
+		<div class="form-group">
+			<div class="col-md-8">
+				<input type="text" required ng-model="ingredient.name" placeholder="Name" class="form-control " />
+			</div>
+			<div class="col-md-3">
+				<input type="text" required ng-model="ingredient.quantity" class="form-control" placeholder="Quantity" />
+			</div>
+			<div class="col-md-1">
+				<a ng-click="create.removeIngredient($index)" href="">
+					<span class="glyphicon glyphicon-minus"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Method</label>
+		<div class="col-sm-10">
+			<textarea rows="10" required ng-model="create.recipe.method" class="form-control" />
+		</div>
+	</div>
+	<input type="submit" value="Save" class="btn btn btn-success pull-right" />
+</form>

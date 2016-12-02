@@ -1,0 +1,11 @@
+<div>
+	<img class="col-md-2" ng-src="{{recipie.picURL}}" />
+	<div class="col-md-6">
+		<p>{{recipie.title}}</p>
+		<span uib-rating read-only="true" ng-model="recipie.difficulty"></span>
+	</div>
+	<div class="col-md-4">
+		<p>Added: {{recipie.timeAdded | date}}</p>
+		<p>This will take {{recipie.duration | duration}}</p>
+	</div>
+</div>
